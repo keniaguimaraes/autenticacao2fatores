@@ -10,4 +10,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:name])
       devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
     end
+    rescue_from CanCan::AccessDenied do |exception|
+      redirect_to '/blogs', :notice => 'Você não é autorizado para acessar essa funcionalidade!'
+    end
 end

@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :blogs
   # Devise
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", sessions: "users/sessions" }
   devise_scope :user do
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
     resources :users
     resources :announcements
     resources :notifications
+    resources :blogs
 
     root to: "users#index"
   end
@@ -31,7 +33,9 @@ Rails.application.routes.draw do
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
 
+
   root to: 'home#index'
+  root to: 'blogs#index'
   
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
