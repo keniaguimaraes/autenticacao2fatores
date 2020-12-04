@@ -9,3 +9,10 @@ development:
   database: two_factor_development
 
 
+ production:
+  <<: *default
+  database: two_factor_development
+   
+
+
+
