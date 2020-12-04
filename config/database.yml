@@ -7,6 +7,5 @@ default: &default
 development:
   <<: *default
   database: two_factor_development
-  username: username
-  password: 12345678
+
 
