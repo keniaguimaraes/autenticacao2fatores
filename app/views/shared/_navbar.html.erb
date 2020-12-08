@@ -1,6 +1,6 @@
 <% if user_masquerade? %>
   <div class="alert alert-warning text-center">
-    You're logged in as <b><%= current_user.name %> (<%= current_user.email %>)</b>
+    Você esta logado como <b><%= current_user.name %> </b>
     <%= link_to back_masquerade_path(current_user) do %><%= icon("times") %> Logout <% end %>
   </div>
 <% end %>
@@ -38,7 +38,7 @@
           </li>
 
         <% else %>
-          <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Cadastrar", new_user_registration_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
         <% end %>
       </ul>

@@ -1,20 +1,26 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource  
+  load_and_authorize_resource  :except  => [:index]
 
   # GET /blogs
   # GET /blogs.json
   def index
-      if can? :admin, User
+      
+      if  current_user.admin?
        @blogs = Blog.all
       end  
-      if  can? :especial, User
-       @blogs = Blog.all
-      end  
-      if  can? :comum, User
+
+   
+      if  current_user.comum?
        @blogs = Blog.where("blogs.usuario=:usuario",{usuario:current_user.email}).all
       end 
+
+    
+      if current_user.especial?
+        @blogs = Blog.joins('join users on users.email = blogs.usuario')
+                     .where("blogs.usuario=:usuario or users.comum = 't'",{usuario:current_user.email}).all
+       end 
 
   end
 
