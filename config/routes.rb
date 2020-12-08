@@ -21,9 +21,10 @@ Rails.application.routes.draw do
     resources :users
     resources :announcements
     resources :notifications
-    resources :blogs
 
     root to: "users#index"
+  
+
   end
 
   # Main app routes
@@ -38,10 +39,21 @@ Rails.application.routes.draw do
   root to: 'blogs#index'
   
   devise_scope :user do
-    get '/login' => 'devise/sessions#new'
-    get '/logout' => 'devise/sessions#destroy'
-   # get '/perfil' => 'devise/registrations#edit'
-    get '/user' => 'user#index'
- end
+    scope :user, as: :user do
+      get '/login' => 'devise/sessions#new'
+      get '/logout' => 'devise/sessions#destroy'
+      get '/user' => 'user#index'
+      get 'edit'=> 'user#edit'
+    end
+  end
+  root to: 'home#index'
+ resources :user do
+  member do
+    get 'edit'=> 'user#edit'
+    get 'index' => 'user#index'
+    get '/user/:id', :to => 'users#show'
+   # get 'abrir'=> 'controles#abrir'
+  end
+end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

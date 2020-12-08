@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'attr_encrypted', '~> 3.1.0'
 gem 'cancancan'
 gem 'toastr-rails'
+gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -55,7 +56,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'administrate', '~> 0.8.1'
+gem 'administrate'
 gem 'devise', '~> 4.4'
 gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
 gem 'devise_masquerade', '~> 0.6.0'
@@ -69,6 +70,8 @@ gem 'foreman', '~> 0.84.0'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'omniauth-twitter', '~> 1.4'
 gem 'omniauth-github', '~> 1.3'
-
+gem 'devise-i18n'
 gem 'devise-two-factor'
 gem 'rqrcode'
+gem "password_strength"
+#gem "factory_girl_rails", :require => false

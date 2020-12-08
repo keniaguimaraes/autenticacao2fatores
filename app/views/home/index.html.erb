@@ -1,8 +1,8 @@
-<h1>Welcome!</h1>
+<h1>Bem-Vindo!</h1>
 
-You are currently: <strong>
+Atualmente: <strong>
   <% if user_signed_in? %>
-    LOGGED IN
+    Usuário: <%= current_user.email %> LOGGED IN
   <% else %>
     LOGGED OUT
   <% end %>

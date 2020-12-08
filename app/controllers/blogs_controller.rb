@@ -6,7 +6,16 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+      if can? :admin, User
+       @blogs = Blog.all
+      end  
+      if  can? :especial, User
+       @blogs = Blog.all
+      end  
+      if  can? :comum, User
+       @blogs = Blog.where("blogs.usuario=:usuario",{usuario:current_user.email}).all
+      end 
+
   end
 
   # GET /blogs/1

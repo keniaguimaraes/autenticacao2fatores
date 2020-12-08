@@ -1,3 +1,4 @@
+<%require "time"%>
 <%= form_with(model: blog, local: true) do |form| %>
   <% if blog.errors.any? %>
     <div id="error_explanation">
@@ -23,12 +24,13 @@
 
   <div class="field">
     <%= form.label :usuario %>
-    <%= form.text_field :usuario, id: :blog_usuario %>
-  </div>
+    <%= form.text_field :usuario,:value=> current_user.email, readonly:  true  %>
+    </div>
+
 
   <div class="field">
     <%= form.label :data %>
-    <%= form.datetime_select :data, id: :blog_data %>
+    <%= form.datetime_select :data, :value=> Time.zone.now, readonly: true %>
   </div>
 
   <div class="actions">
