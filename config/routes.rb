@@ -23,10 +23,15 @@ Rails.application.routes.draw do
     resources :notifications
 
     root to: "users#index"
-  
-
   end
 
+  devise_scope :user do
+    scope :user, as: :user do
+      get '/login' => 'devise/sessions#new'
+      get '/logout' => 'devise/sessions#destroy'
+    
+    end
+  end
   # Main app routes
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
@@ -34,26 +39,9 @@ Rails.application.routes.draw do
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
 
-
   root to: 'home#index'
   root to: 'blogs#index'
   
-  devise_scope :user do
-    scope :user, as: :user do
-      get '/login' => 'devise/sessions#new'
-      get '/logout' => 'devise/sessions#destroy'
-      get '/user' => 'user#index'
-      get 'edit'=> 'user#edit'
-    end
-  end
-  root to: 'home#index'
- resources :user do
-  member do
-    get 'edit'=> 'user#edit'
-    get 'index' => 'user#index'
-    get '/user/:id', :to => 'users#show'
-   # get 'abrir'=> 'controles#abrir'
-  end
-end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
