@@ -3,7 +3,7 @@ Trabalho da disciplina Segurança e Auditoria sobre Autenticação em Duas Etapa
 
 ### Colaboradores
   - Ayrton Silas
-  - Danilo Brito,-
+  - Danilo Brito
   - Elias Maciel
   - Juliana Nascimento 
   - Kênia Guimarães
