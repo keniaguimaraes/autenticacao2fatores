@@ -1,24 +1,16 @@
-# README
+# Segurança e Auditoria
+Trabalho da disciplina Segurança e Auditoria sobre Autenticação em Duas Etapas.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Colaboradores
+  - Ayrton Silas
+  - Danilo Brito,-
+  - Elias Maciel
+  - Juliana Nascimento 
+  - Kênia Guimarães
 
-Things you may want to cover:
+### Tecnologias 
+    $ Ruby 2.6.2
+    $ Rails 5.2.2
+    $ PostgreSQL
+    $ Heroku
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
